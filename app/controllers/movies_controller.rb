@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    @q = Movie.includes(:director).ransack(params[:q])
+    @movies = @q.result(distinct: true)
   end
 end
