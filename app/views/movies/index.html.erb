@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+      <div id="movies">
+        <% @movies.each do |movie| %>
+          <h4><%= movie.title %></h4>
+          <p><%= movie.synopsis %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
