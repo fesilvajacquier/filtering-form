@@ -130,6 +130,71 @@ But as we are using a second route and action to retrieve the frame we want to u
 
 Considering this, later on we will explore the alternative of not using **Turbo Frames**.
 
+## Auto-submit form
+
+1. Create the `form_filtering_controller.js`
+
+    ```js
+    // app/javascript/controllers/filtering_form_controller.js
+    import { Controller } from "@hotwired/stimulus"
+
+    export default class extends Controller {
+      connect() {
+        console.log("filtering_form controller connected")
+        this.element.querySelectorAll("input").forEach( (input) => {
+          input.addEventListener("input", this.debounce(() => this.submit()))
+        })
+      }
+
+      // private
+
+      debounce(func, timeout = 500) {
+        let timer;
+        return (...args) => {
+          clearTimeout(timer);
+          timer = setTimeout(() => { func.apply(this, args); }, timeout);
+        };
+      }
+
+      submit() {
+        this.element.requestSubmit()
+      }
+    }
+    ```
+
+    The `debounce` funciton was taken from this [example](https://www.freecodecamp.org/news/javascript-debounce-example/)
+
+2. Register the controller
+
+    ```js
+    // app/javascript/controllers/index.js
+    // ...
+    import FilteringFormController from "./filtering_form_controller"
+    application.register("filtering_form", FilteringFormController)
+    ```
+
+3. Use it in the form & create a link to clear the search.
+
+    ```erb
+    <%# app/views/movies/index.html.erb %>
+      <div class="row justify-content-center">
+        <div class="col-sm-4">
+          <%= search_form_for @q,
+                              url: filter_movies_path,
+                              data: {
+                                controller: "filtering_form",
+                                turbo_frame: "search"
+                              } do |f| %>
+            <%# ... %>
+          <% end %>
+          <%= link_to "Clear search", request.path %>
+        </div>
+        <div class="col-sm-8">
+          <%= render "movies_list" %>
+        </div>
+      </div>
+    ```
+
 [^1]: This is [URL design guidelines](https://www.forgov.qld.gov.au/information-and-communication-technology/communication-and-publishing/website-and-digital-publishing/website-standards-guidelines-and-templates/url-design-guidelines/principles-all-web-pages) express quite well the message I am trying to convey.
 
     ```

@@ -4,6 +4,7 @@
       <%= search_form_for @q,
                           url: filter_movies_path,
                           data: {
+                            controller: "filtering_form",
                             turbo_frame: "search"
                           } do |f| %>
         <div class="form-row">
@@ -35,8 +36,8 @@
                                autocomplete: "off" %>
           </div>
         </div>
-        <%= f.submit %>
       <% end %>
+      <%= link_to "Clear search", request.path %>
     </div>
     <div class="col-sm-8">
       <%= render "movies_list" %>
