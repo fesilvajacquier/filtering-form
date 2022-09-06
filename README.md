@@ -58,6 +58,8 @@ The goal is to have a filtering form for the `Movies#index` that:
       <% end %>
     ```
 
+![](just_ransack.mp4)
+
 ## Use Turbo Frames
 
 1. Move the movies' list to a partial so that it can be used from the `Movies#index` action and the soon to be added `Movies#filter` action.
@@ -130,6 +132,8 @@ But as we are using a second route and action to retrieve the frame we want to u
 
 Considering this, later on we will explore the alternative of not using **Turbo Frames**.
 
+![](with_turbo.mp4)
+
 ## Auto-submit form
 
 1. Create the `form_filtering_controller.js`
@@ -194,6 +198,8 @@ Considering this, later on we will explore the alternative of not using **Turbo 
         </div>
       </div>
     ```
+
+![](with_auto_submit.mp4)
 
 [^1]: This is [URL design guidelines](https://www.forgov.qld.gov.au/information-and-communication-technology/communication-and-publishing/website-and-digital-publishing/website-standards-guidelines-and-templates/url-design-guidelines/principles-all-web-pages) express quite well the message I am trying to convey.
 
