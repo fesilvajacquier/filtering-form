@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-4">
-      <%= search_form_for @q do |f| %>
+      <%= search_form_for @q,
+                          url: filter_movies_path,
+                          data: {
+                            turbo_frame: "search"
+                          } do |f| %>
         <div class="form-row">
           <div class="form-group">
             <%= f.label :title %>
@@ -35,14 +39,13 @@
       <% end %>
     </div>
     <div class="col-sm-8">
-      <div id="movies">
-        <% @movies.each do |movie| %>
-          <h4><%= movie.title %></h4>
-          <span><%= movie.year %></span>
-          <span><%= movie.director.full_name %></span>
-          <p><%= movie.synopsis %></p>
-        <% end %>
-      </div>
+      <%= render "movies_list" %>
     </div>
   </div>
 </div>
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere sit aliquid enim maxime fugiat atque distinctio tempore porro? Nisi inventore accusamus repudiandae quisquam nam explicabo mollitia tempora ut placeat velit.</p>
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere sit aliquid enim maxime fugiat atque distinctio tempore porro? Nisi inventore accusamus repudiandae quisquam nam explicabo mollitia tempora ut placeat velit.</p>
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere sit aliquid enim maxime fugiat atque distinctio tempore porro? Nisi inventore accusamus repudiandae quisquam nam explicabo mollitia tempora ut placeat velit.</p>
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere sit aliquid enim maxime fugiat atque distinctio tempore porro? Nisi inventore accusamus repudiandae quisquam nam explicabo mollitia tempora ut placeat velit.</p>
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere sit aliquid enim maxime fugiat atque distinctio tempore porro? Nisi inventore accusamus repudiandae quisquam nam explicabo mollitia tempora ut placeat velit.</p>
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere sit aliquid enim maxime fugiat atque distinctio tempore porro? Nisi inventore accusamus repudiandae quisquam nam explicabo mollitia tempora ut placeat velit.</p>
