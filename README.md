@@ -199,6 +199,11 @@ Considering this, later on we will explore the alternative of not using **Turbo 
       </div>
     ```
 
+## Without Turbo Frames
+
+In the branch `without-turbo-frames` everything related with the turbo frame was removed (including the additional route & action).
+In this example the url can be "trusted".
+
 ![](with_auto_submit.mp4)
 
 [^1]: This is [URL design guidelines](https://www.forgov.qld.gov.au/information-and-communication-technology/communication-and-publishing/website-and-digital-publishing/website-standards-guidelines-and-templates/url-design-guidelines/principles-all-web-pages) express quite well the message I am trying to convey.

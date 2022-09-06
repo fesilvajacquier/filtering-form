@@ -1,10 +1,8 @@
-<%= turbo_frame_tag "search", target: "_top" do %>
-  <div id="movies">
-    <% @movies.each do |movie| %>
-      <h4><%= movie.title %></h4>
-      <span><%= movie.year %></span>
-      <span><%= movie.director.full_name %></span>
-      <p><%= movie.synopsis %></p>
-    <% end %>
-  </div>
-<% end %>
+<div id="movies">
+  <% @movies.each do |movie| %>
+    <h4><%= movie.title %></h4>
+    <span><%= movie.year %></span>
+    <span><%= movie.director.full_name %></span>
+    <p><%= movie.synopsis %></p>
+  <% end %>
+</div>

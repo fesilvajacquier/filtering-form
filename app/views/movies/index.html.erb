@@ -2,10 +2,8 @@
   <div class="row justify-content-center">
     <div class="col-sm-4">
       <%= search_form_for @q,
-                          url: filter_movies_path,
                           data: {
-                            controller: "filtering_form",
-                            turbo_frame: "search"
+                            controller: "filtering_form"
                           } do |f| %>
         <div class="form-row">
           <div class="form-group">
